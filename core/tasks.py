@@ -25,4 +25,4 @@ def callback_endpoint(event, context):
         "message": "test_message"
     }
 
-    return response
+    return json.dumps(response)
