@@ -26,6 +26,6 @@ def callback_endpoint(event, context):
         if data['action'] == 'ok':
             response = {"message": "Okay then"}
         elif data['action'] == 'no':
-            response = {"message": "Sorry :("}
+            response = {"message": "Oh... sorry :("}
 
     return json.dumps(response), 200, {'Content-Type': 'application/json'}
