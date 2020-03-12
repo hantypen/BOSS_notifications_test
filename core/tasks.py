@@ -18,14 +18,19 @@ def tasks_endpoint(event, context):
 def callback_endpoint(event, context):
     logging.info("Responding to callback", extra={"event": event})
 
-    data = event.get('json', {}).get('body')
+    data = event.get('data')
 
-    response = {"message": "No Response Selected"}
+    try:
+        action = data['actions'][0]['name']
+    except KeyError:
+        response = {"message": "Sorry, still working on this :/"}
+        return json.dumps(response), 200, {'Content-Type': 'application/json'}
 
-    if data.get('response'):
-        if data['response'] == 'ok':
-            response = {"message": "Okay then"}
-        elif data['response'] == 'no':
-            response = {"message": "Oh... sorry :("}
+    if action == 'OK':
+        response = {"message": "Okay then"}
+    elif action == 'No':
+        response = {"message": "Oh... sorry :("}
+    else:
+        response = {"message": "Sorry, still working on this :/"}
 
     return json.dumps(response), 200, {'Content-Type': 'application/json'}
