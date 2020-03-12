@@ -15,12 +15,12 @@ tasks = [
         {
           "name": "OK",
           "type": "callback",
-          "url": "https://boss.ngrok.io/slack/response?game=hearthstone"
+          "url": "https://eric-test-workshop-kepler.machine.datarobot.com/workshop/callback?response=ok"
         },
         {
           "name": "No",
           "type": "callback",
-          "url": "https://boss.ngrok.io/slack/response?game=starcraft"
+          "url": "https://eric-test-workshop-kepler.machine.datarobot.com/workshop/callback?response=no"
         }
       ]
     },

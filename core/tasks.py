@@ -22,10 +22,10 @@ def callback_endpoint(event, context):
 
     response = {"message": "No Response Selected"}
 
-    if data.get('action'):
-        if data['action'] == 'ok':
+    if data.get('response'):
+        if data['response'] == 'ok':
             response = {"message": "Okay then"}
-        elif data['action'] == 'no':
+        elif data['response'] == 'no':
             response = {"message": "Oh... sorry :("}
 
     return json.dumps(response), 200, {'Content-Type': 'application/json'}
